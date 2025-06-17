@@ -166,6 +166,7 @@ try:
     Inbox = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchScopeButtonId-list1"]/span/span')))
     Inbox.click()
         
+    print("Selected Inbox.")
     time.sleep(10)
     #Select the first one div
     try:
@@ -187,19 +188,24 @@ try:
     forward_arrow = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ItemReadingPaneContainer"]/div[2]/div/div[1]/div/div/div[1]/div[1]/div[2]/div/div/div[4]/div/div/button')))
     forward_arrow.click()
     print("Clicked on forward mail.")
-    time.sleep(5)
+    time.sleep(10)
     email_to = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="2"]')))
     email_to.send_keys(os.getenv('EMAIL_TO'))
-    
-    content_box = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="appendonsend"]')))
-    
-    
+    print("entered email.")
+    content_box = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="editorParent_3"]/div/div[2]/div[2]')))
+    content_box.send_keys("Please find this email.")
+    print("entered content.")
+    send_mail = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="splitButton-r25__primaryActionButton"]')))
+    send_mail.click()
+    print("Clicked on send mail,  waiting for 30s...")
+    time.sleep(30)
+    print("Email Forwarded Successfully.")
+    driver.quit()
 except TimeoutException:
     print("Error occured while forwarding mail.")
+    driver.quit()
+    sys.exit(1)
     
-    
-time.sleep(120)
-print("Done")
 # driver.quit()
 # sys.exit(1)
 #Get Link from the Email
