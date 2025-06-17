@@ -211,43 +211,6 @@ except TimeoutException:
     print("Error occured while forwarding mail.")
     driver.quit()
     sys.exit(1)
-    
-# driver.quit()
-# sys.exit(1)
-#Get Link from the Email
-# try:
-#     time.sleep(3)
-#     # link = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "Click here")))     # exact text or By.PARTIAL_LINK_TEXT, 'Click'
-#     link = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(), 'Click here')]")))
-#     secure_url = link.get_attribute("href")
-#     print("Opening secure URL directly: ")
-#     driver.get(secure_url)
-# except NoSuchElementException:
-#     print("Link not found.")
-#     driver.quit()
-#     sys.exit(1)
 
-# try:
-#     #Enter Password of the secure link
-#     pass_field = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="dialog:password"]')))
-#     pass_field.send_keys(os.getenv('SECURE_PASS'))
-#     pass_field.send_keys(Keys.ENTER)
-#     print("Secure password entered.")
-
-#     #Download File
-#     file_link = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[@class='header-attachment-item']/a[contains(text(), 'AmericanBenefitCorpINVENTORY_') and contains(text(), '.xlsx')]")))
-#     file_link.click()
-#     print("Clicked on file.")
-
-#     #Wait while file downloads
-#     wait_time = 20
-#     print(f"Waiting for {wait_time}s, while file is being downloaded.")
-#     time.sleep(wait_time)
-#     driver.quit()
-# except NoSuchElementException:
-#     print("Error occured while downloading file.")
-#     driver.quit()
-#     sys.exit(1)
-    
     
 #Code Done
