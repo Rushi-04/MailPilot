@@ -145,16 +145,28 @@ try:
     search_bar.click()
     time.sleep(5)
     search_bar.clear()
-    # For testing purpose
-    # search_bar.send_keys( "SECURE AmericanBenefitCorp INVENTORY '2025-06-09'")
+    
     
     #Dynamic search content
-    search_date = datetime.today().strftime('%Y-%m-%d')
+    search_date = datetime.today()
+    formatted_date = f"{search_date.month}_{search_date.day}_{search_date.year}"
+    # For testing purpose
     search_bar.send_keys(f"FW: [Secure] - ABC HOLDINGS - TEAMSTERS  File dated - 6_11_2025")
+    # search_bar.send_keys(f"FW: [Secure] - ABC HOLDINGS - TEAMSTERS  File dated - {formatted_date}")
     search_bar.send_keys(Keys.ENTER)
     print("Searched for content.")
-
+    
     time.sleep(5)
+    
+    #Select Inbox filter
+    folders = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchScopeButtonId-option"]/span')))
+    time.sleep(2)
+    folders.click()
+    time.sleep(2)
+    Inbox = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchScopeButtonId-list1"]/span/span')))
+    Inbox.click()
+        
+    time.sleep(10)
     #Select the first one div
     try:
         first_search = wait.until(EC.element_to_be_clickable((By.XPATH, '//div[@role="listbox"]//div[@data-focusable-row="true"][1]')))
@@ -170,11 +182,26 @@ except TimeoutException:
     driver.quit()
     sys.exit(1)
     
+#Forward Mail
+try:                                                                  
+    forward_arrow = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ItemReadingPaneContainer"]/div[2]/div/div[1]/div/div/div[1]/div[1]/div[2]/div/div/div[4]/div/div/button')))
+    forward_arrow.click()
+    print("Clicked on forward mail.")
+    time.sleep(5)
+    email_to = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="2"]')))
+    email_to.send_keys(os.getenv('EMAIL_TO'))
+    
+    content_box = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="appendonsend"]')))
+    
+    
+except TimeoutException:
+    print("Error occured while forwarding mail.")
+    
     
 time.sleep(120)
 print("Done")
-driver.quit()
-sys.exit(1)
+# driver.quit()
+# sys.exit(1)
 #Get Link from the Email
 # try:
 #     time.sleep(3)
