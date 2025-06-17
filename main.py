@@ -192,10 +192,16 @@ try:
     email_to = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="2"]')))
     email_to.send_keys(os.getenv('EMAIL_TO'))
     print("entered email.")
-    content_box = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="editorParent_3"]/div/div[2]/div[2]')))
-    content_box.send_keys("Please find this email.")
-    print("entered content.")
-    send_mail = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="splitButton-r25__primaryActionButton"]')))
+    try:
+        content_box1 = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="sonoraIntroHintParent"]/span[1]')))
+        content_box1.click()
+        content_box2 = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="editorParent_1"]/div/div[3]')))
+        content_box2.send_keys("Please find this email.")
+        print("entered content.")
+    except TimeoutException:
+        print("No content space found.")
+                                                                  
+    send_mail = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="splitButton-r1p__primaryActionButton"]')))
     send_mail.click()
     print("Clicked on send mail,  waiting for 30s...")
     time.sleep(30)
