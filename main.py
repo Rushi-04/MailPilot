@@ -377,7 +377,7 @@ try:
         print("Selected first search result.")  
     except NoSuchElementException:
         print("Searched mail not found.")
-        driver.quit()
+        driver.quit() 
         sys.exit(1)     
          
 except TimeoutException:  
