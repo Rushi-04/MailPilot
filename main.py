@@ -368,7 +368,7 @@ try:
     time.sleep(2)
     Inbox = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchScopeButtonId-list1"]/span/span')))
     Inbox.click()
-    print("Selected Inbox.")
+    print("Selected Inbox.")   
     time.sleep(10)
 
     try:
