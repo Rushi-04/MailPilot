@@ -342,7 +342,7 @@ try:
         wait.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="New mail"]')))
         print("Logged In to Outlook Successfully.")
     except TimeoutException:
-        print("Login Failed or took too long.")
+        print("Login Failed or took too long.") 
 except TimeoutException:
     print("Login Timeout")
     driver.quit()
