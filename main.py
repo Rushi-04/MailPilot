@@ -259,7 +259,7 @@ load_dotenv()
 
 def get_otp(secret_key):
     totp = pyotp.TOTP(secret_key)
-    return totp.now()
+    return totp.now() 
 
 chrome_options = uc.ChromeOptions()
 prefs = {
