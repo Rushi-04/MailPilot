@@ -330,12 +330,12 @@ try:
         no_button.click()
         print("Selected No.")
     time.sleep(5)
-    try:
-        name_div = wait.until(EC.presence_of_element_located((By.XPATH, '//div[contains(@class, "content")]/div[1]')))
-        print("User Name:", name_div.text)
-        name_div.click()
-    except TimeoutException:
-        print("Name element not found.")
+    # try:
+    #     name_div = wait.until(EC.presence_of_element_located((By.XPATH, '//div[contains(@class, "content")]/div[1]')))
+    #     print("User Name:", name_div.text)
+    #     name_div.click()
+    # except TimeoutException:
+    #     print("Name element not found.")
   
     time.sleep(5)
     try:
