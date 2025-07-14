@@ -336,7 +336,7 @@ try:
     #     name_div.click()
     # except TimeoutException:
     #     print("Name element not found.")
-
+  
     time.sleep(5)
     try:
         wait.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="New mail"]')))
@@ -416,3 +416,4 @@ except TimeoutException:
     print("Error occurred while forwarding mail.")
     driver.quit()
     sys.exit(1)
+  
