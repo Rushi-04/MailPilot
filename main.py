@@ -409,7 +409,7 @@ try:
     time.sleep(30)
     print("Email Forwarded Successfully.")
     
-    #Update forward date
+    #Update forward date   
     update_last_forwarded_date()
     driver.quit()
 except TimeoutException:
