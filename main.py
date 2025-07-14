@@ -411,7 +411,6 @@ try:
     
     #Update forward date
     update_last_forwarded_date()
-
     driver.quit()
 except TimeoutException:
     print("Error occurred while forwarding mail.")
