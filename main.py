@@ -383,7 +383,7 @@ try:
 except TimeoutException:    
     print("Error during finding email.")   
     driver.quit()  
-    sys.exit(1)  
+    sys.exit(1)    
         
 #Forward Mail
 try:                                                                  
