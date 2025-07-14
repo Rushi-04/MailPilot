@@ -381,7 +381,7 @@ try:
         sys.exit(1)     
         
 except TimeoutException:  
-    print("Error during finding email.")
+    print("Error during finding email.")   
     driver.quit()  
     sys.exit(1)
     
