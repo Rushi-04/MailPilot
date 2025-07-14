@@ -388,7 +388,7 @@ except TimeoutException:
 #Forward Mail
 try:                                                                  
     forward_arrow = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ItemReadingPaneContainer"]/div[2]/div/div[1]/div/div/div[1]/div[1]/div[2]/div/div/div[4]/div/div/button')))
-    forward_arrow.click()
+    forward_arrow.click()   
     print("Clicked on forward mail.")
     time.sleep(10)
     email_to = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="2"]')))
