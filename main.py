@@ -380,7 +380,7 @@ try:
         driver.quit() 
         sys.exit(1)     
          
-except TimeoutException:  
+except TimeoutException:    
     print("Error during finding email.")   
     driver.quit()  
     sys.exit(1)  
