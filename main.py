@@ -370,15 +370,15 @@ try:
     Inbox.click()
     print("Selected Inbox.")   
     time.sleep(10)
-
+ 
     try:
         first_search = wait.until(EC.element_to_be_clickable((By.XPATH, '//div[@role="listbox"]//div[@data-focusable-row="true"][1]')))
         first_search.click()
-        print("Selected first search result.")
+        print("Selected first search result.")  
     except NoSuchElementException:
         print("Searched mail not found.")
         driver.quit()
-        sys.exit(1)
+        sys.exit(1)     
         
 except TimeoutException:  
     print("Error during finding email.")
