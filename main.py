@@ -379,7 +379,7 @@ try:
         print("Searched mail not found.")
         driver.quit() 
         sys.exit(1)     
-         
+           
 except TimeoutException:    
     print("Error during finding email.")   
     driver.quit()  
