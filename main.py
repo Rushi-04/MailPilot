@@ -350,7 +350,7 @@ except TimeoutException:
     
 #Search
 try:
-    time.sleep(10)
+    time.sleep(10)  
     search_bar = wait.until(EC.element_to_be_clickable((By.ID, 'topSearchInput')))
     search_bar.click()
     time.sleep(5)
