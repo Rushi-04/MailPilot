@@ -358,6 +358,7 @@ try:
     
     search_date = datetime.today()
     formatted_date = f"{search_date.month}_{search_date.day}_{search_date.year}"
+    time.sleep(5) 
     search_bar.send_keys(f"FW: [Secure] - ABC HOLDINGS - TEAMSTERS  File dated - {formatted_date}")
     search_bar.send_keys(Keys.ENTER)
     print("Searched for content.")
