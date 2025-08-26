@@ -357,12 +357,12 @@ try:
     search_bar.clear()
     
     search_date = datetime.today()
-    formatted_date = f"{search_date.month}_{search_date.day}_{search_date.year}"
+    formatted_date = f"{search_date.month}_{search_date.day}_{search_date.year}"    
     time.sleep(5) 
     search_bar.send_keys(f"FW: [Secure] - ABC HOLDINGS - TEAMSTERS  File dated - {formatted_date}")
     search_bar.send_keys(Keys.ENTER)
     print("Searched for content.")
-    
+     
     time.sleep(5)
     folders = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchScopeButtonId-option"]/span')))
     folders.click()
