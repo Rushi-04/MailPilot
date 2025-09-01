@@ -397,10 +397,10 @@ try:
     print("entered email.")
     try:
         content_box1 = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="sonoraIntroHintParent"]/span[1]')))
-        content_box1.click
+        content_box1.click()
         content_box2 = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="editorParent_1"]/div/div[3]')))
         content_box2.send_keys("Please find this email.")
-        print("entered content.") 
+        print("entered content.")
     except TimeoutException:
         print("No content space found.")
                                                                   
