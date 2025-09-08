@@ -383,18 +383,12 @@ try:
            
 except TimeoutException:    
     print("Error during finding email.")   
-    driver.quit()   
+    driver.quit()       
     sys.exit(1)    
         
-#Forward Mail
+#Forward Mail   
 try:                                                                  
-    forward_arrow = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ItemReadingPaneContainer"]/div[2]/div/div[1]/div/div/div[1]/div[1]/div[2]/div/div/div[4]/div/div/button')))
-    forward_arrow.click()   
-    print("Clicked on forward mail.")   
-    time.sleep(10)
-    email_to = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="2"]')))
-    email_to.send_keys(os.getenv('EMAIL_TO'))
-    print("entered email.")
+
     try:
         content_box1 = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="sonoraIntroHintParent"]/span[1]')))
         content_box1.click()
@@ -418,3 +412,4 @@ except TimeoutException:
     driver.quit()
     sys.exit(1)
   
+
