@@ -261,7 +261,38 @@ def get_otp(secret_key):
     totp = pyotp.TOTP(secret_key)
     return totp.now() 
 
+chrome_options = uc.ChromeOptions()
+prefs = {
+    "download.prompt_for_download": False,
+    "directory_upgrade": True,
+    "safebrowsing.enabled": True,
+}
+chrome_options.add_experimental_option("prefs", prefs)
+chrome_options.add_argument("--disable-blink-features=AutomationControlled")
 
+driver = uc.Chrome(options=chrome_options)
+driver.maximize_window()
+wait = WebDriverWait(driver, 60)
+shortWait = WebDriverWait(driver, 15)
+
+#Login
+try:
+    web_url = "https://outlook.live.com/mail/0/"
+    driver.get(web_url)
+    print("Opening Website...")
+            
+    signIn_btn = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="action-oc5b26"]/span')))
+    signIn_btn.click()
+    print("Moving to signIn steps")
+    
+    wait.until(lambda d: len(d.window_handles) > 1)
+    driver.switch_to.window(driver.window_handles[-1])
+    time.sleep(5)
+
+    email_box = wait.until(EC.element_to_be_clickable((By.ID, "i0116")))
+    email_box.clear()
+    email_box.send_keys(os.getenv('EMAIL'), Keys.ENTER)
+    print("Email Entered.")
     
     try:
         password_box = shortWait.until(EC.element_to_be_clickable((By.ID, "i0118")))
@@ -352,10 +383,10 @@ try:
            
 except TimeoutException:    
     print("Error during finding email.")   
-    driver.quit()       
+    driver.quit()   
     sys.exit(1)    
         
-#Forward Mail   
+#Forward Mail
 try:                                                                  
     forward_arrow = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="ItemReadingPaneContainer"]/div[2]/div/div[1]/div/div/div[1]/div[1]/div[2]/div/div/div[4]/div/div/button')))
     forward_arrow.click()   
@@ -387,4 +418,3 @@ except TimeoutException:
     driver.quit()
     sys.exit(1)
   
-
