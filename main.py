@@ -264,7 +264,7 @@ def get_otp(secret_key):
 chrome_options = uc.ChromeOptions()
 prefs = {
     "download.prompt_for_download": False,
-    "directory_upgrade": True,
+    "directory_upgrade": True, 
     "safebrowsing.enabled": True,
 }
 chrome_options.add_experimental_option("prefs", prefs)
