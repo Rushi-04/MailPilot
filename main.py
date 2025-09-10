@@ -306,10 +306,7 @@ try:
     sign_in_another_way.click()
     print("Selected sign-in using another way")
     
-    time.sleep(5)
-    verify_with_code = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="idDiv_SAOTCS_Proofs"]/div[2]/div/div/div[2]/div')))
-    verify_with_code.click()    
-    print("Clicked on verify with code")
+  
     
     time.sleep(5)
     try:
