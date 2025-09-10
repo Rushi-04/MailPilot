@@ -287,7 +287,7 @@ try:
     
     wait.until(lambda d: len(d.window_handles) > 1)
     driver.switch_to.window(driver.window_handles[-1])
-    time.sleep(5)
+    time.sleep(5) 
 
     email_box = wait.until(EC.element_to_be_clickable((By.ID, "i0116")))
     email_box.clear()
