@@ -235,7 +235,7 @@ def read_last_forwarded_date():
                 return datetime.strptime(f.read().strip(), "%Y-%m-%d").date()
             except:
                 return None
-    return None
+    return None  
 
 def update_last_forwarded_date():
     with open(LOG_FILE, "w") as f:
