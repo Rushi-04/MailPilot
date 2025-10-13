@@ -228,6 +228,14 @@ import sys
 LOG_FILE = "last_forwarded.txt"
 today = datetime.now().date()
 
+def read_last_forwarded_date():
+    if os.path.exists(LOG_FILE):
+        with open(LOG_FILE, "r") as f:
+            try:
+                return datetime.strptime(f.read().strip(), "%Y-%m-%d").date()
+            except:
+                return None
+    return None
 
 def update_last_forwarded_date():
     with open(LOG_FILE, "w") as f:
