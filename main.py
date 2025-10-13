@@ -228,14 +228,6 @@ import sys
 LOG_FILE = "last_forwarded.txt"
 today = datetime.now().date()
 
-def read_last_forwarded_date():
-    if os.path.exists(LOG_FILE):
-        with open(LOG_FILE, "r") as f:
-            try:
-                return datetime.strptime(f.read().strip(), "%Y-%m-%d").date()
-            except:
-                return None
-    return None
 
 def update_last_forwarded_date():
     with open(LOG_FILE, "w") as f:
@@ -358,7 +350,7 @@ try:
     
     search_date = datetime.today()
     formatted_date = f"{search_date.month}_{search_date.day}_{search_date.year}"    
-    time.sleep(5) 
+    time.sleep(5)
     search_bar.send_keys(f"FW: [Secure] - ABC HOLDINGS - TEAMSTERS  File dated - {formatted_date}")
     search_bar.send_keys(Keys.ENTER)
     print("Searched for content.")
@@ -369,7 +361,7 @@ try:
     time.sleep(2)
     Inbox = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="searchScopeButtonId-list1"]/span/span')))
     Inbox.click()
-    print("Selected Inbox.")   
+    print("Selected Inbox.")
     time.sleep(10)
  
     try:
@@ -417,4 +409,3 @@ except TimeoutException:
     print("Error occurred while forwarding mail.")
     driver.quit()
     sys.exit(1)
-  
